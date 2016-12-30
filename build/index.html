@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #container {
+      background:red;
+      position:relative;
+      width:500px;
+      height:500px;
+      margin:0 auto;
+      margin-top:40px;
+    }
+  </style>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <div id="container"></div>
+  <script src="bundle.js"></script>
+  <script>
+    var board = writingPad.build(document.querySelector("#container"));
+    console.log(board);
+    board.show()
+    board.resize()
+  </script>
+</body>
+</html>

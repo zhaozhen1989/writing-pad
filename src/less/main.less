@@ -1,0 +1,99 @@
+
+@import "var/color.less";
+@import "var/makeup.less";
+@path: "../resource";
+
+.writing-pad-container {
+  position:absolute;
+  top:0px;
+  left:0px;
+  right:0px;
+  bottom:0px;
+  z-index:1;
+  background-color:rgba(204, 232, 250, 0.4);
+  & > div {
+    margin:0 auto;
+    //width:700px;
+    height:100%;
+    //padding-left:20px;
+    //padding-right:20px;
+    box-sizing:border-box;
+    & > .drawing-board-controls {
+      padding-top:10px;
+      padding-bottom:10px;
+      position:fixed;
+      top:0px;
+      z-index:100;
+    }
+    & > .drawing-board-canvas-wrapper {
+      .dragging-bg-button {
+        position:absolute;
+        left:10px;  
+        top:10px;
+        z-index:100;
+        cursor:pointer;
+        display:none;
+        background:@white;
+        border:1px solid #ccc;
+      }
+      &.grid .dragging-bg-button{
+        display:inline-block;
+      }
+      &.grid:after {
+        .user-select-none();
+        cursor:move;
+        content:' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-image: url("@{path}/img/grid_top_left_bg.png");
+        opacity:.2;
+      }
+      background-color:rgba(204, 232, 250, 0.6);
+      //background-color:rgba(204, 232, 250, 1);
+      margin:0 auto;
+      //top:48px;
+      .drawing-tip-title {
+        display:none;
+        color:@red;
+        font-size:40px;
+      }
+      &.move-bg {
+        .drawing-tip-title{
+          pointer-events:none;
+          display:block;
+          width:100%;
+          text-align:center;
+          top:0px;
+          letf:0px;
+        }
+
+        .dragging-bg-button {
+          box-shadow:inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+          background:#ddd;
+        }
+
+
+        &.grid:after {
+          opacity:.7;
+        }
+
+        canvas {
+          z-index:0;
+          pointer-events:none;
+          opacity:.2;
+        }
+      }
+    }
+    //border:3px double #000000;
+    canvas {
+      //background-color:#CCE8FA;
+      opacity:.7;
+    }
+  }
+}
+
