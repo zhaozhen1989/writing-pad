@@ -19,10 +19,11 @@
   <div id="container"></div>
   <script src="bundle.js"></script>
   <script>
-    var board = writingPad.build(document.querySelector("#container"));
-    console.log(board);
+    var container = document.querySelector("#container");
+    var board = writingPad.build(container);
     board.show()
     board.resize()
+    //board.extendHeight(container.clientHeight / 3);
   </script>
 </body>
 </html>

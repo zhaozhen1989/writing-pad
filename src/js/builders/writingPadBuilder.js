@@ -43,7 +43,7 @@ let build = ( container )=> {
 
   board.__extend = {
     _events:{},
-    resize:()=> {board.resize() },
+    resize:()=> {board.resize({controlHeight:false}) },
     restore:()=> {board.restoreWebStorage()},
     show:()=> {$board.show()},
     hide:()=> {$board.hide()},
@@ -99,7 +99,7 @@ let build = ( container )=> {
     extendHeight:function(height = 300) {
       let img = board.getImg()
       $board.height(this.getHeight() + height)
-      this.resize();
+      this.resize({controlHeight:false});
       board.reset();
       board.restoreHistory(img);
     },
@@ -113,7 +113,6 @@ let build = ( container )=> {
     }
   };
 
-  board.__extend.extendHeight(48);
   return board.__extend;
 };
 
