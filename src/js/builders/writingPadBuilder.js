@@ -1,23 +1,26 @@
 import $ from 'jQuery';
 import * as random from '../utils/random';
 
-let build = ( container )=> {
+let build = ( container, opts = {} )=> {
   let id = `writingPad${random.string()}`;
   let $board = $(`
     <div class="writing-pad-container">
       <div id='${id}'></div>
     </div>
   `);
+
   $board.hide();
+
   let $container = $(container).append($board);
   let histories = {};
   let timeId;
-  let board = new DrawingBoard.Board(id,{
+  let defaults = {
     autoHistory:false,
     autoStorage:false,
-    eraserColor:"transparent",
-    background:"",
-    controlsPosition:"center",
+    eraserColor:'transparent',
+    background:'',
+    controlsPosition:'center',
+    gridTipText:'請將格線拖拉至適當位置',
     controls:[
       {
         Size:{
@@ -39,9 +42,14 @@ let build = ( container )=> {
       "Grid",
       "Close"
     ]
-  });
+  };
+
+  $.extend(defaults, opts);
+
+  let board = new DrawingBoard.Board(id, defaults);
 
   board.__extend = {
+    defaults:defaults,
     _events:{},
     resize:()=> {board.resize({controlHeight:false}) },
     restore:()=> {board.restoreWebStorage()},

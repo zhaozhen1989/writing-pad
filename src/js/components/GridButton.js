@@ -1,5 +1,5 @@
 
-import isTouchEvent from '../utils/eventUtils';
+import {isTouchEvent} from '../utils/eventUtils';
 import $ from 'jQuery';
 
 let GridButton = DrawingBoard.Control.extend({
@@ -18,7 +18,7 @@ let GridButton = DrawingBoard.Control.extend({
         this.board.__extend.toggleGridBg()
         //this._showDraggingButton()
         this._getDraggingButtonInstance()
-        this._setTipTitle("請將格線拖拉至適當位置")
+        this._setTipTitle(this.board.__extend.defaults.gridTipText);
         if (!this.board.__extend._getWrapper().hasClass('grid')) this._disableMovingBG()
     }, this))
   },
