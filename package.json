@@ -1,12 +1,12 @@
 {
   "name": "writing-pad",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Sparrow.jang",
   "main":"build/bundle.js",
   "scripts": {
     "watch": "webpack --progress --colors --watch",
     "build": "NODE_ENV='production' webpack",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build --host 0.0.0.0"
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base . --host 0.0.0.0"
   },
   "dependencies": {
     "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.6.2",

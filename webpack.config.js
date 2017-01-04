@@ -12,8 +12,13 @@ module.exports = {
   entry: entry,
   output: {
     path: path.join(__dirname, 'build'),
+    libraryTarget:'umd',
     filename: 'bundle.js'
   },  
+  externals: {
+    jquery:'jQuery',
+    drawingboard:'drawingboard.js'
+  },
   resolve: {
     alias: {
       drawingboard:'drawingboard.js/dist/drawingboard',

@@ -13,11 +13,13 @@
       margin-top:40px;
     }
   </style>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/node_modules/drawingboard.js/dist/drawingboard.css">
 </head>
 <body>
   <div id="container"></div>
-  <script src="bundle.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script src="/node_modules/drawingboard.js/dist/drawingboard.js"></script>
+  <script src="/bundle.js"></script>
   <script>
     var container = document.querySelector("#container");
     var board = writingPad.build(container);
