@@ -28,5 +28,5 @@ let exportModule = {
 
 if (typeof window === 'object') window.writingPad = exportModule;
 
-export default exportModule;
+module.exports = exportModule;
 
