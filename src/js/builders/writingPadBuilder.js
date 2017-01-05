@@ -73,7 +73,9 @@ let build = ( container, opts = {} )=> {
 
     _onClose:function() {
       if (this._events['hide'])
-        for( func of this._events['hide'] ) func();
+        for(let index in this._events['hide'] ) {
+          this._events['hide'][index]();
+        }
     },
 
     listen:function( name, fn ) {
