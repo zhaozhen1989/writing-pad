@@ -13,6 +13,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     libraryTarget:'umd',
+    library:'writingPad',
     filename: 'bundle.js'
   },  
   externals: {

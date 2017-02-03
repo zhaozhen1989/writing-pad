@@ -26,7 +26,8 @@ let exportModule = {
   build:buildWritingPad
 };
 
-if (typeof window === 'object') window.writingPad = exportModule;
+//if (typeof window === 'object') window.writingPad = exportModule;
 
 export default exportModule;
+module.exports = exportModule;
 
