@@ -18,6 +18,7 @@ module.exports = {
   },  
   externals: {
     jquery:'jQuery',
+    jQuery:'jQuery',
     drawingboard:'drawingboard.js'
   },
   resolve: {
