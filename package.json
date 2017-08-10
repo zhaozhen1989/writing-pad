@@ -1,11 +1,11 @@
 {
   "name": "writing-pad",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "Sparrow.jang",
   "main": "build/bundle.js",
   "scripts": {
     "watch": "webpack --progress --colors --watch",
-    "build": "NODE_ENV='production' webpack",
+    "build": "NODE_ENV='production' webpack --devtool source-map",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base . --host 0.0.0.0"
   },
   "dependencies": {
@@ -25,7 +25,7 @@
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "~2.2.1",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^3.5.2",
+    "webpack-dev-server": "^2.7.1"
   }
 }
