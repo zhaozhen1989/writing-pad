@@ -19,7 +19,8 @@ module.exports = {
   externals: {
     jquery:'jQuery',
     jQuery:'jQuery',
-    drawingboard:'drawingboard.js'
+    drawingboard:'drawingboard.js',
+    'font-awesome':'font-awesome'
   },
   resolve: {
     alias: {
