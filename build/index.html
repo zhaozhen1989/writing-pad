@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <style>
     #container {
@@ -14,6 +15,7 @@
     }
   </style>
   <link rel="stylesheet" href="/node_modules/drawingboard.js/dist/drawingboard.css">
+  <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
   <div id="container"></div>
@@ -25,6 +27,13 @@
     var board = writingPad.build(container);
     board.show()
     board.resize()
+    /*document.body.querySelector('canvas').addEventListener('touchstart', function (evt){
+      console.log(evt.targetTouches);
+      if(evt.targetTouches.length) {
+        evt.stopPropagation()
+        evt.preventDefault()
+      }
+    });*/
     //board.extendHeight(container.clientHeight / 3);
   </script>
 </body>

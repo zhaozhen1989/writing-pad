@@ -2,7 +2,7 @@
 import $ from 'jQuery';
 import css from 'drawingboardCss';
 import less from '../less/main.less';
-import fontAwesome from 'font-awesome/css/font-awesome.css';
+//import fontAwesome from 'font-awesome/css/font-awesome.css';
 import * as drawingboard from 'drawingboard';
 import CloseButton from './components/CloseButton';
 import GridButton from './components/GridButton';

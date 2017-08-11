@@ -18,7 +18,7 @@ let GridButton = DrawingBoard.Control.extend({
         this.board.__extend.toggleGridBg()
         //this._showDraggingButton()
         this._getDraggingButtonInstance()
-        this._setTipTitle(this.board.__extend.defaults.gridTipText);
+        this._setTipTitle(this.board.__extend.opts.gridTipText);
         if (!this.board.__extend._getWrapper().hasClass('grid')) this._disableMovingBG()
     }, this))
   },
