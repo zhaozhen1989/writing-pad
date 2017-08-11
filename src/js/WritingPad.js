@@ -40,30 +40,41 @@ class WritingPad extends SimpleObserver {
     super();
     let id = `writingPad${random.string()}`;
     this.histories = {};
-    this.$el = this._initDOM(container, id);
-    this.opts = this._initOpts(opts);
+    this._initDOM(container, id, opts);
+    this._initOpts(opts);
     this.board = new DrawingBoard.Board(id, this.opts);
     this.board.__extend = this;
   }
 
   _initOpts(opts) {
     let instanceOpts = $.extend(true, {}, defaults);
-    return $.extend(instanceOpts, opts);
+    this.opts = $.extend(instanceOpts, opts);
   }
 
-  _initDOM(container, id) {
+  _initDOM(container, id, opts) {
     let $board = this._buildContainerElement(id);
     let $container = $(container)
     $board.hide();
-    $container.append($board)
-    return $board;
+    $container.append($board);
+    this.$el = $board;
+    if (opts && opts.canvasWidth) this._setInnerContentWidth(opts.canvasWidth);
+  }
+
+  _getInnerContentElement() {
+    return this.$el.find('.writing-inner-content');
+  }
+
+  _setInnerContentWidth(width) {
+    this._getInnerContentElement().width(width + 2);
   }
 
   _buildContainerElement(id) {
     return $(`
       <div class="writing-pad-container">
-        <div class="writing-pad-mask">
-          <div id='${id}'></div>
+        <div class="writing-inner-content">
+          <div class="writing-pad-mask">
+            <div id='${id}'></div>
+          </div>
         </div>
       </div>
     `);
@@ -151,7 +162,7 @@ class WritingPad extends SimpleObserver {
   extendHeight(height = 300) {
     let img = this.board.getImg()
     this.$el.height(this.getHeight() + height)
-    this.resize({controlHeight:false});
+    this.resize();
     this.board.reset();
     this.board.restoreHistory(img);
   }

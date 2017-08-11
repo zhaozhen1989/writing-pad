@@ -4,8 +4,13 @@
 @path: "../resource";
 
 .writing-pad-container {
-  height:100%;
-  position:relative;
+
+  overflow:hidden;
+
+  &, .writing-inner-content {
+    height:100%;
+    position:relative;
+  }
 
   .writing-pad-mask {
     position:absolute;
