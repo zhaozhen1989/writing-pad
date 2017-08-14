@@ -11,7 +11,7 @@
       width:500px;
       height:500px;
       margin:0 auto;
-      margin-top:40px;
+      /*margin-top:40px;*/
     }
   </style>
   <link rel="stylesheet" href="/node_modules/drawingboard.js/dist/drawingboard.css">
@@ -24,7 +24,7 @@
   <script src="/bundle.js"></script>
   <script>
     var container = document.querySelector("#container");
-    var board = writingPad.build(container);
+    var board = writingPad.build(container, {canvasWidth:1000, useMovingGesture:true, controlsLayout:'left'});
     board.show()
     board.resize()
     /*document.body.querySelector('canvas').addEventListener('touchstart', function (evt){
