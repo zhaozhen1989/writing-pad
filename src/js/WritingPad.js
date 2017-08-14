@@ -44,6 +44,7 @@ class WritingPad extends SimpleObserver {
     this._initOpts(opts);
     this.board = new DrawingBoard.Board(id, this.opts);
     this.board.__extend = this;
+    this._initLayoutControls(this.opts);
   }
 
   _initOpts(opts) {
@@ -58,6 +59,10 @@ class WritingPad extends SimpleObserver {
     $container.append($board);
     this.$el = $board;
     if (opts && opts.canvasWidth) this._setInnerContentWidth(opts.canvasWidth);
+  }
+
+  _initLayoutControls(opts) {
+    if (opts && opts.controlsLayout === 'left') this.$el.find('.drawing-board-controls').addClass('left');
   }
 
   _getInnerContentElement() {
@@ -119,7 +124,7 @@ class WritingPad extends SimpleObserver {
     return false;
   }
 
-  clearHistory() {
+  clearStorage() {
     this.board.clearWebStorage()
   }
 

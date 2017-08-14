@@ -3,9 +3,39 @@
 @import "var/makeup.less";
 @path: "../resource";
 
+.add-left-side-drawing-board-controls() {
+
+  .left.drawing-board-controls {
+    margin-left:-60px;
+    display:block;
+
+    .drawing-board-control {
+      display:block;
+      text-align:right;
+
+      &.drawing-board-control-drawingmode {
+        button {
+          //margin:2px auto;
+          display:block;
+          float:right;
+          clear:right; 
+          margin-right:0px;
+        }
+      }
+
+      button {
+        margin-top:2px;
+        width:100%;
+      }
+    }
+  }
+}
+
 .writing-pad-container {
 
   overflow:hidden;
+
+  .add-left-side-drawing-board-controls;
 
   &, .writing-inner-content {
     height:100%;
@@ -77,9 +107,10 @@
             pointer-events:none;
             display:block;
             width:100%;
-            text-align:center;
+            //text-align:center;
             top:0px;
-            letf:0px;
+            //letf:0px;
+            margin-left:40px;
           }
   
           .dragging-bg-button {
