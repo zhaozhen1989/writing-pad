@@ -111,7 +111,7 @@ class WritingPad extends SimpleObserver {
   restoreByKey( key, opts = {clearEmpty:true} ) {
     if (this.histories[key]) {
       this.board.reset();
-      this.board.restoreHistory(histories[key]);
+      this.board.restoreHistory(this.histories[key]);
       return true;
     } else if (opts && opts.clearEmpty) {
       return this.board.reset();
