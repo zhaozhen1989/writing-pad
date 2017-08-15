@@ -1,12 +1,22 @@
 {
   "name": "writing-pad",
-  "version": "1.1.5",
+  "version": "1.1.6",
+  "description":"The writing-pad support some basic features.",
   "author": "Sparrow.jang",
   "main": "build/bundle.js",
   "scripts": {
     "watch": "webpack --progress --colors --watch",
     "build": "NODE_ENV='production' webpack -p --devtool source-map",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base . --host 0.0.0.0"
+  },
+  "keywords": [
+    "writing pad",
+    "drawingboard",
+    "canvas"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eHanlin/writing-pad"
   },
   "dependencies": {
     "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.8",
