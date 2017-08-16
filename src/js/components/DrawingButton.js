@@ -1,9 +1,9 @@
 
 import $ from 'jQuery';
 
-let CustomizeDrawingButton = DrawingBoard.Control.extend({
+let DrawingButton = DrawingBoard.Control.extend({
 
-  name:'customizeDrawing',
+  name:'drawing',
 
   _initElement: function(ELEMENT_CLASS_NAME) {
     this.$el.append(`
@@ -14,9 +14,16 @@ let CustomizeDrawingButton = DrawingBoard.Control.extend({
     this.getButtonElement().css('color', this.color);
   },
 
+  _initOpts: function(opts) {
+    let {lineWidth, color} = opts;
+    if (lineWidth) this.lineWidth = lineWidth;
+    if (color) this.color = color;
+  },
+
   initialize: function() {
     let ELEMENT_CLASS_NAME = 'drawing-board-control-customize-drawing-button';
 
+    this._initOpts(this.opts || {});
     this._initElement(ELEMENT_CLASS_NAME);
     this.$el.on('click', `.${ELEMENT_CLASS_NAME}`, this.onClick.bind(this));
     this.board.ev.bind('board:mode', this.onChangedMode.bind(this));
@@ -47,5 +54,5 @@ let CustomizeDrawingButton = DrawingBoard.Control.extend({
 });
 
 
-export default CustomizeDrawingButton;
+export default DrawingButton;
 
