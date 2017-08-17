@@ -31,9 +31,14 @@ Append to element container.
 
 This is some optional settings.
 
-* opts.canvasWidth: Set canvas width. The canvas is able to view width as wide as container when canvas width is wider than container.
-* opts.controlsLayout: Set control panel's layout.(left or center)
-* opts.useMovingGesture: Set true if you want to use scale gesture.
+* **opts.canvasWidth:** Set canvas width. The canvas is able to view width as wide as container when canvas width is wider than container.
+* **opts.controlsLayout:** Set control panel's layout.(left or center)
+* **opts.useMovingGesture:** Set true if you want to use scale gesture.
+* **opts.gridTipText:** Set the tip text of grid's background.
+* **opts.controls:**  The control panel's setup support `Drawing` 、 `Eraser` 、 `Grid` 、 `ExtendVertical` 、 `Close` and so on.
+> Set `color` or `lineWidth` if you use `Drawing`. (ie `{Drawing:{color:'rgba(0, 0, 255, 1)', lineWidth:'5'}}`).
+
+See [this](https://github.com/eHanlin/drawingboard.js#included-controls) if you want to use `drawingboard.js` controls.
 
 ### WritingPad
 
