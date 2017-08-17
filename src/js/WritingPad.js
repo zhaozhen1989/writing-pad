@@ -12,7 +12,7 @@ let defaults = {
   controlsPosition:'center',
   gridTipText:'請將格線拖拉至適當位置',
   controls:[
-    {
+/*    {
       Size:{
         type: 'dropdown'
       }
@@ -22,6 +22,19 @@ let defaults = {
         filler: false
       }
     },
+    {
+      Navigation:{
+        back: false,
+        forward: false
+      }
+    },*/
+    'Drawing',
+    {
+      Drawing:{
+        color:'rgba(0, 0, 255, 1)'
+      }
+    },
+    'Eraser',
     {
       Navigation:{
         back: false,
@@ -42,14 +55,22 @@ class WritingPad extends SimpleObserver {
     this.histories = {};
     this._initDOM(container, id, opts);
     this._initOpts(opts);
-    this.board = new DrawingBoard.Board(id, this.opts);
+    this.board = new DrawingBoard.Board(id, this.boardOpts);
     this.board.__extend = this;
     this._initLayoutControls(this.opts);
   }
 
   _initOpts(opts) {
-    let instanceOpts = $.extend(true, {}, defaults);
-    this.opts = $.extend(instanceOpts, opts);
+    this.opts = $.extend({}, opts);
+    this._initBoardOpts(opts);
+  }
+
+  _initBoardOpts(opts) {
+    let boardOpts = $.extend(true, {}, defaults);
+    if (opts.controls) boardOpts.controls = controls;
+    if (opts.gridTipText) boardOpts.gridTipText = gridTipText;
+    if (opts.useMovingGesture) boardOpts.useMovingGesture = opts.useMovingGesture;
+    this.boardOpts = boardOpts;
   }
 
   _initDOM(container, id, opts) {
