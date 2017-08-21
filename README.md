@@ -35,6 +35,7 @@ This is some optional settings.
 * **opts.controlsLayout:** Set control panel's layout.(left or center)
 * **opts.useMovingGesture:** Set true if you want to use scale gesture.
 * **opts.gridTipText:** Set the tip text of grid's background.
+* **opts.hintAreaText:** Set hint text of writing area.
 * **opts.controls:**  The control panel's setup support `Drawing` 、 `Eraser` 、 `Grid` 、 `ExtendVertical` 、 `Close` and so on.
 > Set `color` or `lineWidth` if you use `Drawing`. (ie `{Drawing:{color:'rgba(0, 0, 255, 1)', lineWidth:'5'}}`).
 
@@ -104,5 +105,13 @@ Increase container's height.
 #### autosize(auto:boolean)
 
 Resize canvas width when `resize` event is triggered by browser.
+
+### openHintOfWriting()
+
+Open hint of writing area.
+
+### closeHintOfWriting()
+
+Close hint of writing area.
 
 
