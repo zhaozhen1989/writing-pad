@@ -1,64 +1,16 @@
 
 @import "var/color.less";
 @import "var/makeup.less";
+@import "animations/makeup.less";
+@import "components/hint-area.less";
+@import "controls/left-side-drawing-board-controls.less";
 @path: "../resource";
-
-.add-left-side-drawing-board-controls() {
-
-  .left.drawing-board-controls {
-    margin-left:-51px;
-    display:block;
-
-    .drawing-board-control {
-      display:block;
-      text-align:right;
-
-      &.drawing-board-control-drawingmode {
-        button {
-          //margin:2px auto;
-          display:block;
-          float:right;
-          clear:right; 
-          margin-right:0px;
-        }
-      }
-
-      button {
-        outline:0;
-        height:50px;
-        font-size:18px;
-        margin-top:2px;
-        width:50px;
-        border-radius:50%;
-        //width:100%;
-      }
-    }
-  }
-}
 
 .writing-pad-container {
 
   overflow:hidden;
 
-  &[data-hint-area]:before {
-    width:100%;
-    height:100%;
-    position:absolute;
-    content:attr(data-writing-area-text);
-    box-sizing:border-box;
-    border:6px dashed #eee;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color:gray;
-    text-align: center;
-    .flash;
-    animation-iteration-count: infinite;
-    animation-duration:5s;
-    background:rgba(255,255,255,0.5);
-    font-size:80px;
-  }
-
+  .build-hint-area;
   .add-left-side-drawing-board-controls;
 
   &, .writing-inner-content {
