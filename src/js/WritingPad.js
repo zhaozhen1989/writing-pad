@@ -5,48 +5,9 @@ import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE} from './constants/Event';
 import {HINT_AREA, DATA_WRITING_AREA} from './constants/WriteAttribute';
 import {LEFT} from './constants/ControlsLayout';
+import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
+import {DEFAULT} from './constants/WritingPad';
 
-let defaults = {
-  autoHistory:false,
-  autoStorage:false,
-  eraserColor:'transparent',
-  background:'',
-  controlsPosition:'center',
-  controls:[
-/*    {
-      Size:{
-        type: 'dropdown'
-      }
-    },
-    {
-      DrawingMode:{
-        filler: false
-      }
-    },
-    {
-      Navigation:{
-        back: false,
-        forward: false
-      }
-    },*/
-    'Drawing',
-    {
-      Drawing:{
-        color:'rgba(0, 0, 255, 1)'
-      }
-    },
-    'Eraser',
-    {
-      Navigation:{
-        back: false,
-        forward: false
-      }
-    },
-    "ExtendVertical",
-    "Grid",
-    "Close"
-  ]
-};
 
 class WritingPad extends SimpleObserver {
 
@@ -62,15 +23,12 @@ class WritingPad extends SimpleObserver {
   }
 
   _initOpts(opts) {
-    this.opts = $.extend({
-      gridTipText:'請將格線拖拉至適當位置',
-      hintAreaText: '手寫範圍'
-    }, opts);
+    this.opts = $.extend(DEFAULT, opts);
     this._initBoardOpts(opts);
   }
 
   _initBoardOpts(opts) {
-    let boardOpts = $.extend(true, {}, defaults);
+    let boardOpts = $.extend(true, {}, BORAD_DEFAULT);
     if (opts.controls) boardOpts.controls = controls;
     if (opts.gridTipText) boardOpts.gridTipText = gridTipText;
     if (opts.useMovingGesture) boardOpts.useMovingGesture = opts.useMovingGesture;
