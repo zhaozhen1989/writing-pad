@@ -3,7 +3,8 @@ import $ from 'jQuery';
 import * as random from './utils/random';
 import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE} from './constants/Event';
-import {HINT_AREA} from './constants/WriteAttribute';
+import {HINT_AREA, DATA_WRITING_AREA} from './constants/WriteAttribute';
+import {LEFT} from './constants/ControlsLayout';
 
 let defaults = {
   autoHistory:false,
@@ -86,7 +87,7 @@ class WritingPad extends SimpleObserver {
   }
 
   _initLayoutControls(opts) {
-    if (opts && opts.controlsLayout === 'left') this.$el.find('.drawing-board-controls').addClass('left');
+    if (opts && opts.controlsLayout === LEFT) this.$el.find('.drawing-board-controls').addClass(LEFT);
   }
 
   _getInnerContentElement() {
@@ -99,7 +100,7 @@ class WritingPad extends SimpleObserver {
 
   _buildContainerElement(id, opts) {
     return $(`
-      <div class="writing-pad-container" data-writing-area-text="${opts.hintAreaText}">
+      <div class="writing-pad-container" ${DATA_WRITING_AREA}="${opts.hintAreaText}">
         <div class="writing-inner-content">
           <div class="writing-pad-mask">
             <div id='${id}'></div>
