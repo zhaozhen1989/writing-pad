@@ -2,7 +2,8 @@
 import $ from 'jQuery';
 import * as random from './utils/random';
 import SimpleObserver from './utils/SimpleObserver';
-import {CLOSE} from './constants/EVENT';
+import {CLOSE} from './constants/Event';
+import {HINT_AREA} from './constants/WriteAttribute';
 
 let defaults = {
   autoHistory:false,
@@ -10,7 +11,6 @@ let defaults = {
   eraserColor:'transparent',
   background:'',
   controlsPosition:'center',
-  gridTipText:'請將格線拖拉至適當位置',
   controls:[
 /*    {
       Size:{
@@ -53,15 +53,18 @@ class WritingPad extends SimpleObserver {
     super();
     let id = `writingPad${random.string()}`;
     this.histories = {};
-    this._initDOM(container, id, opts);
     this._initOpts(opts);
+    this._initDOM(container, id, this.opts);
     this.board = new DrawingBoard.Board(id, this.boardOpts);
     this.board.__extend = this;
     this._initLayoutControls(this.opts);
   }
 
   _initOpts(opts) {
-    this.opts = $.extend({}, opts);
+    this.opts = $.extend({
+      gridTipText:'請將格線拖拉至適當位置',
+      hintAreaText: '手寫範圍'
+    }, opts);
     this._initBoardOpts(opts);
   }
 
@@ -74,7 +77,7 @@ class WritingPad extends SimpleObserver {
   }
 
   _initDOM(container, id, opts) {
-    let $board = this._buildContainerElement(id);
+    let $board = this._buildContainerElement(id, opts);
     let $container = $(container)
     $board.hide();
     $container.append($board);
@@ -94,9 +97,9 @@ class WritingPad extends SimpleObserver {
     this._getInnerContentElement().width(width + 2);
   }
 
-  _buildContainerElement(id) {
+  _buildContainerElement(id, opts) {
     return $(`
-      <div class="writing-pad-container">
+      <div class="writing-pad-container" data-writing-area-text="${opts.hintAreaText}">
         <div class="writing-inner-content">
           <div class="writing-pad-mask">
             <div id='${id}'></div>
@@ -199,6 +202,14 @@ class WritingPad extends SimpleObserver {
     } else {
       $(window).off('resize', this._delayResize);
     }
+  }
+
+  openHintOfWriting() {
+    this.$el.attr(HINT_AREA, '')
+  }
+
+  closeHintOfWriting() {
+    this.$el.removeAttr(HINT_AREA)
   }
 
 }

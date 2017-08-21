@@ -39,6 +39,25 @@
 
   overflow:hidden;
 
+  &[data-hint-area]:before {
+    width:100%;
+    height:100%;
+    position:absolute;
+    content:attr(data-writing-area-text);
+    box-sizing:border-box;
+    border:6px dashed #eee;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color:gray;
+    text-align: center;
+    .flash;
+    animation-iteration-count: infinite;
+    animation-duration:5s;
+    background:rgba(255,255,255,0.5);
+    font-size:80px;
+  }
+
   .add-left-side-drawing-board-controls;
 
   &, .writing-inner-content {
@@ -53,7 +72,7 @@
     right:0px;
     bottom:0px;
     z-index:1;
-    background-color:rgba(204, 232, 250, 0.2);
+    //background-color:rgba(204, 232, 250, 0.2);
   
     & > div {
       margin:0 auto;
@@ -70,6 +89,7 @@
         z-index:100;
       }
       & > .drawing-board-canvas-wrapper {
+        border:none;
         .dragging-bg-button {
           position:absolute;
           left:10px;  
@@ -97,7 +117,7 @@
           background-image: url("@{path}/img/grid_top_left_bg.png");
           opacity:.2;
         }
-        background-color:rgba(204, 232, 250, 0.2);
+        //background-color:rgba(204, 232, 250, 0.2);
         //background-color:rgba(204, 232, 250, 1);
         margin:0 auto;
         //top:48px;

@@ -1,7 +1,7 @@
 {
   "name": "writing-pad",
   "version": "1.1.8",
-  "description":"The writing-pad support some basic features.",
+  "description": "The writing-pad support some basic features.",
   "authors": [
     "Sparrow.jang <sparrow.jang@gmail.com>"
   ],
@@ -10,7 +10,7 @@
     "drawingboard",
     "canvas"
   ],
-  "main":[
+  "main": [
     "build/bundle.js"
   ],
   "dependencies": {

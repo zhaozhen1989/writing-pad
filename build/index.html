@@ -6,7 +6,8 @@
   <title></title>
   <style>
     #container {
-      background:red;
+      /*background:red;*/
+      background:#fafafa;
       position:relative;
       width:500px;
       height:500px;
@@ -27,6 +28,10 @@
     var board = writingPad.build(container, {canvasWidth:1000, useMovingGesture:true, controlsLayout:'left'});
     board.show()
     board.resize()
+    board.openHintOfWriting()
+    setTimeout(function() {
+      board.closeHintOfWriting();
+    }, 6200);
     /*document.body.querySelector('canvas').addEventListener('touchstart', function (evt){
       console.log(evt.targetTouches);
       if(evt.targetTouches.length) {
