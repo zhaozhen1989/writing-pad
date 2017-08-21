@@ -15,6 +15,7 @@ let EraserButton = DrawingBoard.Control.extend({
     this._initElement();
     this.$el.on('click', 'button', this.onClick.bind(this));
     this.board.ev.bind('board:mode', this.onChangedMode.bind(this));
+    if (this.opts.lineWidth) this.lineWidth = this.opts.lineWidth;
   },
 
   getButtonElement: function (){
