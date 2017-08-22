@@ -28,10 +28,7 @@
     var board = writingPad.build(container, {canvasWidth:1000, useMovingGesture:true, controlsLayout:'left'});
     board.show()
     board.resize()
-    board.openHintOfWriting()
-    setTimeout(function() {
-      board.closeHintOfWriting();
-    }, 6200);
+    board.openHintWritingArea().then(()=> console.log('done'))
     /*document.body.querySelector('canvas').addEventListener('touchstart', function (evt){
       console.log(evt.targetTouches);
       if(evt.targetTouches.length) {

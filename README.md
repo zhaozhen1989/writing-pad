@@ -106,11 +106,11 @@ Increase container's height.
 
 Resize canvas width when `resize` event is triggered by browser.
 
-#### openHintOfWriting()
+#### openHintWritingArea()
 
 Open hint that is able to write area.
 
-#### closeHintOfWriting()
+#### closeHintWritingArea()
 
 Close hint that is able to write area.
 
