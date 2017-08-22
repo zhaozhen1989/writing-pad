@@ -20,7 +20,7 @@ class WritingPadHistory {
     for(let key in ctx) {
       let value = ctx[key];
       let type = typeof(value);
-      if (this.COPY_CTX_TYPES.indexOf(type) > -1) {
+      if (this.COPY_CTX_TYPES.indexOf(type) > -1 && key.indexOf('webkit') == -1) {
         this.ctxTmp[key] = value;
       }
     }
