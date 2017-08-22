@@ -168,6 +168,7 @@ class WritingPad extends SimpleObserver {
       this.$el.attr(HINT_AREA, '')
       this.$el.on('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
         this.closeHintWritingArea();
+        resolve();
       });
     });
   }
