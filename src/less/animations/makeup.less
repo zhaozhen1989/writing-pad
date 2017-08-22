@@ -8,8 +8,22 @@
     opacity: 0;
   }
 }
+
+@keyframes flash-to-transparency {
+  from, 50%, to {
+    opacity: 0;
+  }
+ 
+  25%, 75% {
+    opacity: 1;
+  }
+}
  
 .flash() {
   animation-name: flash;
+}
+
+.flash-to-transparency() {
+  animation-name: flash-to-transparency;
 }
 
