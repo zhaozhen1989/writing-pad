@@ -7,6 +7,7 @@ import {HINT_AREA, DATA_WRITING_AREA} from './constants/WriteAttribute';
 import {LEFT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
 import {DEFAULT} from './constants/WritingPad';
+import WritingPadHistory from './WritingPadHistory';
 
 
 class WritingPad extends SimpleObserver {
@@ -15,6 +16,7 @@ class WritingPad extends SimpleObserver {
     super();
     let id = `writingPad${random.string()}`;
     this.histories = {};
+    this.stateHistory = new WritingPadHistory(this);
     this._initOpts(opts);
     this._initDOM(container, id, this.opts);
     this.board = new DrawingBoard.Board(id, this.boardOpts);
@@ -46,6 +48,11 @@ class WritingPad extends SimpleObserver {
 
   _initLayoutControls(opts) {
     if (opts && opts.controlsLayout === LEFT) this.$el.find('.drawing-board-controls').addClass(LEFT);
+    this._setFirstControlToDefault();
+  }
+
+  _setFirstControlToDefault() {
+    this.$el.find(".drawing-board-control:first button").click();
   }
 
   _getInnerContentElement() {
@@ -69,7 +76,9 @@ class WritingPad extends SimpleObserver {
   }
 
   resize() {
+    this.stateHistory.save();
     this.board.resize({controlHeight:false});
+    this.stateHistory.restore();
   }
 
   restore() {
@@ -96,13 +105,19 @@ class WritingPad extends SimpleObserver {
     this.histories[key] = this.board.getImg()
   }
 
+  _resetBoard() {
+    this.stateHistory.save();
+    this.board.reset({color:false, size:false});
+    this.stateHistory.restore();
+  }
+
   restoreByKey( key, opts = {clearEmpty:true} ) {
     if (this.histories[key]) {
-      this.board.reset();
+      this._resetBoard();
       this.board.restoreHistory(this.histories[key]);
       return true;
     } else if (opts && opts.clearEmpty) {
-      return this.board.reset();
+      return this._resetBoard();
     }
     return false;
   }
@@ -151,7 +166,7 @@ class WritingPad extends SimpleObserver {
     let img = this.board.getImg()
     this.$el.height(this.getHeight() + height)
     this.resize();
-    this.board.reset();
+    this._resetBoard();
     this.board.restoreHistory(img);
   }
 
