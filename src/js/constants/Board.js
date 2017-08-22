@@ -33,12 +33,13 @@ export const DEFAULT = {
         lineWidth: '30'
       }   
     },  
-    {   
+    'Reset',
+    /*{   
       Navigation:{
         back: false,
         forward: false
       }   
-    },  
+    },*/  
     "ExtendVertical",
     "Grid",
     "Close"

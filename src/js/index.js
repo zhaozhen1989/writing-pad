@@ -9,6 +9,7 @@ import GridButton from './components/GridButton';
 import ExtendVerticalButton from './components/ExtendVerticalButton';
 import DrawingButton from './components/DrawingButton';
 import EraserButton from './components/EraserButton';
+import ResetButton from './components/ResetButton';
 import buildWritingPad from './builders/writingPadBuilder';
 
 DrawingBoard.Control.Close = CloseButton;
@@ -16,6 +17,7 @@ DrawingBoard.Control.Grid = GridButton;
 DrawingBoard.Control.ExtendVertical = ExtendVerticalButton;
 DrawingBoard.Control.Drawing = DrawingButton;
 DrawingBoard.Control.Eraser = EraserButton;
+DrawingBoard.Control.Reset = ResetButton;
     
 
 (function decroateNavigation(){
