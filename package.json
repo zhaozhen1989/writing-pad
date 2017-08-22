@@ -1,6 +1,6 @@
 {
   "name": "writing-pad",
-  "version": "1.1.8",
+  "version": "1.2.1",
   "description": "The writing-pad support some basic features.",
   "author": "Sparrow.jang",
   "main": "build/bundle.js",
