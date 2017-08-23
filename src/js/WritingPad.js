@@ -1,6 +1,7 @@
 
 import $ from 'jQuery';
 import * as random from './utils/random';
+import * as canvasUtils from './utils/canvasUtils';
 import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE} from './constants/Event';
 import {HINT_AREA, DATA_WRITING_AREA} from './constants/WriteAttribute';
@@ -163,11 +164,11 @@ class WritingPad extends SimpleObserver {
   }
 
   extendHeight(height = 300) {
-    let img = this.board.getImg()
+    let originalCanvas = canvasUtils.copyCanvas(this.board.canvas);
     this.$el.height(this.getHeight() + height)
     this.resize();
     this._resetBoard();
-    this.board.restoreHistory(img);
+    canvasUtils.drawFrom(this.board.canvas, originalCanvas);
   }
 
   autosize(auto = true) {
