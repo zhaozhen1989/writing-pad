@@ -181,7 +181,7 @@ class WritingPad extends SimpleObserver {
   openHintWritingArea() {
     return new Promise((resolve, reject)=> {
       this.$el.attr(HINT_AREA, '')
-      this.$el.on('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
+      this.$el.one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
         this.closeHintWritingArea();
         resolve();
       });
