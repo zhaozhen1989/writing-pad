@@ -113,7 +113,8 @@ class WritingPad extends SimpleObserver {
   }
 
   saveByKey(key) {
-    this.histories[key] = this.board.getImg()
+    //this.histories[key] = this.board.getImg()
+    this.histories[key] = canvasUtils.copyCanvas(this.board.canvas);
   }
 
   _resetBoard() {
@@ -127,7 +128,8 @@ class WritingPad extends SimpleObserver {
   restoreByKey( key, opts = {clearEmpty:true} ) {
     if (this.histories[key]) {
       this._resetBoard();
-      this.board.restoreHistory(this.histories[key]);
+      canvasUtils.drawFrom(this.board.canvas, this.histories[key]);
+      //this.board.restoreHistory(this.histories[key]);
       return true;
     } else if (opts && opts.clearEmpty) {
       return this._resetBoard();
