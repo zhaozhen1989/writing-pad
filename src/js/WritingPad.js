@@ -9,6 +9,7 @@ import {LEFT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
 import {DEFAULT} from './constants/WritingPad';
 import WritingPadHistory from './WritingPadHistory';
+import dataURLtoBlob from 'blueimp-canvas-to-blob';
 
 
 class WritingPad extends SimpleObserver {
@@ -102,6 +103,19 @@ class WritingPad extends SimpleObserver {
 
   toImage() {
     return this.board.getImg()
+  }
+
+  toBlob() {
+    return new Promise((resolve, reject)=>{
+      let canvas = this.board.canvas;
+
+      if(!HTMLCanvasElement.prototype.toBlob) {
+        let blob = dataURLtoBlob(this.board.getImg());
+        resolve(blob);
+      } else {
+        canvas.toBlob(resolve);
+      }
+    });
   }
 
   saveByKey(key) {
