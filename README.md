@@ -82,6 +82,14 @@ Save current canvas to history by key.
 
 Draw a canvas from history's key.
 
+#### deleteKey(key)
+
+Delete history by key.
+
+#### containKey(key)
+
+Return true if this key exist history.
+
 #### clearStorage()
 
 Remove images from storage

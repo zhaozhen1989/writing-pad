@@ -117,6 +117,14 @@ class WritingPad extends SimpleObserver {
     this.histories[key] = canvasUtils.copyCanvas(this.board.canvas);
   }
 
+  containKey(key) {
+    return !!this.histories[key];
+  }
+
+  deleteKey(key) {
+    delete this.histories[key];
+  }
+
   _resetBoard() {
     //this.stateHistory.save();
     //this.board.reset({color:false, size:false});
