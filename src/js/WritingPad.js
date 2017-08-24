@@ -4,7 +4,7 @@ import * as random from './utils/random';
 import * as canvasUtils from './utils/canvasUtils';
 import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE} from './constants/Event';
-import {HINT_AREA, DATA_WRITING_AREA} from './constants/WriteAttribute';
+import {HINT_AREA, DATA_WRITING_AREA, DATA_CONTROL_LAYOUT} from './constants/WriteAttribute';
 import {LEFT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
 import {DEFAULT} from './constants/WritingPad';
@@ -48,7 +48,9 @@ class WritingPad extends SimpleObserver {
   }
 
   _initLayoutControls(opts) {
-    if (opts && opts.controlsLayout === LEFT) this.$el.find('.drawing-board-controls').addClass(LEFT);
+    if (opts && opts.controlsLayout === LEFT) {
+      this.$el.attr(DATA_CONTROL_LAYOUT, LEFT);
+    }
     this._setFirstControlToDefault();
   }
 

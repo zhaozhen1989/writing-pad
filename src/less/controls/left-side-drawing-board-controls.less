@@ -1,32 +1,39 @@
+@import "../var/layout.less";
 
 .add-left-side-drawing-board-controls() { 
    
-  .left.drawing-board-controls {
-    margin-left:-51px;
-    display:block;
-   
-    .drawing-board-control {
+  &[data-control-layout='left'] {
+    .drawing-board-controls {
+      //margin-left:-51px;
       display:block;
-      text-align:right;
-   
-      &.drawing-board-control-drawingmode {
+     
+      .drawing-board-control {
+        display:block;
+        text-align:right;
+     
+        &.drawing-board-control-drawingmode {
+          button {
+            //margin:2px auto;
+            display:block;
+            float:right;
+            clear:right; 
+            margin-right:0px;
+          }
+        }
+     
         button {
-          //margin:2px auto;
-          display:block;
-          float:right;
-          clear:right; 
-          margin-right:0px;
+          outline:0;
+          height:@control-layout-left-width;
+          font-size:18px;
+          margin-top:2px;
+          width:@control-layout-left-width;
+          border-radius:50% !important;
+          //width:100%;
         }
       }
-   
-      button {
-        outline:0;
-        height:50px;
-        font-size:18px;
-        margin-top:2px;
-        width:50px;
-        border-radius:50%;
-        //width:100%;
+
+      & ~ .drawing-board-canvas-wrapper{
+        margin-left:@control-layout-left-width;
       }
     }
   }
