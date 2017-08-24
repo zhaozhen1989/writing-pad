@@ -68,6 +68,16 @@ Return true if current container's display is none.
 
 Get a image of base64.
 
+#### toBlob():Promise
+
+Get a blob.
+
+```js
+board.toBlob().then(function(blob){
+  //do something
+});
+```
+
 #### saveByKey(key)
 
 Save current canvas to history by key.
