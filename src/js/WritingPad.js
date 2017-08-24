@@ -193,6 +193,13 @@ class WritingPad extends SimpleObserver {
     canvasUtils.drawFrom(this.board.canvas, originalCanvas);
   }
 
+  resetHeight(height) {
+    let originalCanvas = canvasUtils.copyCanvas(this.board.canvas);
+    this.$el.height(height);
+    this.resize();
+    this._resetBoard();
+  }
+
   autosize(auto = true) {
     if(auto) {
       $(window).on('resize', this._delayResize);

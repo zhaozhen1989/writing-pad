@@ -116,6 +116,12 @@ Increase container's height.
 
 * height: Input increasing values.
 
+#### resetHeight(height)
+
+Reset canvas height.
+
+* height: canvas height.
+
 #### autosize(auto:boolean)
 
 Resize canvas width when `resize` event is triggered by browser.
