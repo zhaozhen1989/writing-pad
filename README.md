@@ -48,10 +48,6 @@ See [this](https://github.com/eHanlin/drawingboard.js#included-controls) if you 
 
 Resize canvas width.
 
-#### restore()
-
-Draw a image to canvas from web storage.
-
 #### show()
 
 Show a container.

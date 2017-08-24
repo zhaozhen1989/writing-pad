@@ -85,9 +85,9 @@ class WritingPad extends SimpleObserver {
     this.stateHistory.restore();
   }
 
-  restore() {
+  /*restore() {
     this.board.restoreWebStorage()
-  }
+  }*/
 
   show() {
     this.$el.show()
