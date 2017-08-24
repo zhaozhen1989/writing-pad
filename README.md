@@ -68,7 +68,7 @@ Return true if current container's display is none.
 
 Get a image of base64.
 
-#### toBlob():Promise
+#### toBlob(type, quality):Promise
 
 Get a blob.
 

@@ -105,16 +105,10 @@ class WritingPad extends SimpleObserver {
     return this.board.getImg()
   }
 
-  toBlob() {
+  toBlob(type, quality) {
     return new Promise((resolve, reject)=>{
       let canvas = this.board.canvas;
-
-      if(!HTMLCanvasElement.prototype.toBlob) {
-        let blob = dataURLtoBlob(this.board.getImg());
-        resolve(blob);
-      } else {
-        canvas.toBlob(resolve);
-      }
+      canvas.toBlob(resolve, type, quality);
     });
   }
 
