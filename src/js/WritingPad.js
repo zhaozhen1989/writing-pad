@@ -109,9 +109,11 @@ class WritingPad extends SimpleObserver {
   }
 
   _resetBoard() {
-    this.stateHistory.save();
-    this.board.reset({color:false, size:false});
-    this.stateHistory.restore();
+    //this.stateHistory.save();
+    //this.board.reset({color:false, size:false});
+    //this.board.resetBackground();
+    this.board.clear();
+    //this.stateHistory.restore();
   }
 
   restoreByKey( key, opts = {clearEmpty:true} ) {
