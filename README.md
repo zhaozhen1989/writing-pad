@@ -78,9 +78,11 @@ board.toBlob().then(function(blob){
 
 Save current canvas to history by key.
 
-#### restoreByKey(key)
+#### restoreByKey(key, opts)
 
 Draw a canvas from history's key.
+
+* opts.useHistoryHeight: Reset canvas height from history's canvas height, if useHistoryHeight is true.
 
 #### deleteKey(key)
 
