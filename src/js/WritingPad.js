@@ -133,13 +133,18 @@ class WritingPad extends SimpleObserver {
     //this.stateHistory.restore();
   }
 
-  restoreByKey( key, opts = {clearEmpty:true} ) {
-    if (this.histories[key]) {
+  restoreByKey( key, {clearEmpty = true, useHistoryHeight = false} = {}) {
+    if (this.containKey(key)) {
+      let historyCanvas = this.histories[key];
+
       this._resetBoard();
-      canvasUtils.drawFrom(this.board.canvas, this.histories[key]);
+
+      if (useHistoryHeight) this.resetHeight(historyCanvas.height);
+
+      canvasUtils.drawFrom(this.board.canvas, historyCanvas);
       //this.board.restoreHistory(this.histories[key]);
       return true;
-    } else if (opts && opts.clearEmpty) {
+    } else if (clearEmpty) {
       return this._resetBoard();
     }
     return false;
