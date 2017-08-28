@@ -11,6 +11,9 @@ export function copyCanvas(canvas) {
 
 export function drawFrom(canvas, from) {
   let ctx = canvas.getContext('2d');
+  let tmpCompositeOperation = ctx.globalCompositeOperation;
+  ctx.globalCompositeOperation = 'source-over';
   ctx.drawImage(from, 0, 0);
+  ctx.globalCompositeOperation = tmpCompositeOperation;
 };
 
