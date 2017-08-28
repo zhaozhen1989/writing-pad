@@ -114,7 +114,13 @@ class WritingPad extends SimpleObserver {
 
   saveByKey(key) {
     //this.histories[key] = this.board.getImg()
-    this.histories[key] = canvasUtils.copyCanvas(this.board.canvas);
+    try {
+      this.histories[key] = canvasUtils.copyCanvas(this.board.canvas);
+    } catch (e) {
+      console.warn(e);
+      return false;
+    }
+    return true;
   }
 
   containKey(key) {
