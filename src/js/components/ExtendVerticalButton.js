@@ -15,7 +15,7 @@ let ExtendVerticalButton = DrawingBoard.Control.extend({
         let $body = $("body");
         $body.animate({
           scrollTop:$body.get(0).scrollHeight
-        }, 1500)
+        }, 1000)
         e.preventDefault()
     })
   }
