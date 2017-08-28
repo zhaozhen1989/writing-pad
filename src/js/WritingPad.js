@@ -72,7 +72,9 @@ class WritingPad extends SimpleObserver {
       <div class="writing-pad-container" ${DATA_WRITING_AREA}="${opts.hintAreaText}">
         <div class="writing-inner-content">
           <div class="writing-pad-mask">
-            <div id='${id}'></div>
+            <div id='${id}'>
+              <div class="controls-background"></div>
+            </div>
           </div>
         </div>
       </div>
