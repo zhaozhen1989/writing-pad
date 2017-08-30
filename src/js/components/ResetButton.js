@@ -15,8 +15,20 @@ let ResetButton = DrawingBoard.Control.extend({
 
   initialize: function(){
     this._initElement();
-    this.$el.on('click', 'button', ()=> this.board.__extend.resize())
-  }
+
+    if (this.opts.confirmationText) this.confirmationText = this.opts.confirmationText;
+    if (this.opts.disabledConfirmation) this.disabledConfirmation = this.opts.disabledConfirmation;
+
+    this.$el.on('click', 'button', ()=>{
+      if (this.disabledConfirmation || confirm(this.confirmationText)) {
+        this.board.__extend.resize()
+      }
+    })
+  },
+
+  confirmationText:'確定要清除繪圖板?',
+
+  disabledConfirmation:false
 
 });
 
