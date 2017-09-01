@@ -3,7 +3,7 @@ import $ from 'jQuery';
 import * as random from './utils/random';
 import * as canvasUtils from './utils/canvasUtils';
 import SimpleObserver from './utils/SimpleObserver';
-import {CLOSE} from './constants/Event';
+import {CLOSE, START_DRAWING, BOARD_START_DRAWING, BOARD_STOP_DRAWING, STOP_DRAWING, DRAWING, BOARD_DRAWING} from './constants/Event';
 import {HINT_AREA, DATA_WRITING_AREA, DATA_CONTROL_LAYOUT} from './constants/WriteAttribute';
 import {LEFT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
@@ -24,6 +24,13 @@ class WritingPad extends SimpleObserver {
     this.board = new DrawingBoard.Board(id, this.boardOpts);
     this.board.__extend = this;
     this._initLayoutControls(this.opts);
+    this._initEvents();
+  }
+
+  _initEvents() {
+    this.board.ev.bind(BOARD_START_DRAWING, (evt)=> this.trigger(START_DRAWING, evt))
+    this.board.ev.bind(BOARD_STOP_DRAWING, (evt)=> this.trigger(STOP_DRAWING, evt))
+    this.board.ev.bind(BOARD_DRAWING, (evt)=> this.trigger(DRAWING, evt))
   }
 
   _initOpts(opts) {
