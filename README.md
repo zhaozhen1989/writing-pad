@@ -45,27 +45,27 @@ See [this](https://github.com/eHanlin/drawingboard.js#included-controls) if you 
 ### WritingPad
 
 
-#### resize()
+##### resize()
 
 Resize canvas width.
 
-#### show()
+##### show()
 
 Show a container.
 
-#### hide()
+##### hide()
 
 Hide a container.
 
-#### isHidden()
+##### isHidden()
 
 Return true if current container's display is none.
 
-#### toImage()
+##### toImage()
 
 Get a image of base64.
 
-#### toBlob(type, quality):Promise
+##### toBlob(type, quality):Promise
 
 Get a blob.
 
@@ -75,66 +75,74 @@ board.toBlob().then(function(blob){
 });
 ```
 
-#### saveByKey(key)
+##### saveByKey(key)
 
 Save current canvas to history by key.
 
-#### restoreByKey(key, opts)
+##### restoreByKey(key, opts)
 
 Draw a canvas from history's key.
 
 * opts.useHistoryHeight: Reset canvas height from history's canvas height, if useHistoryHeight is true.
 
-#### deleteKey(key)
+##### deleteKey(key)
 
 Delete history by key.
 
-#### containKey(key)
+##### containKey(key)
 
 Return true if this key exist history.
 
-#### clearStorage()
+##### clearStorage()
 
 Remove images from storage
 
-#### openGridBg()
+##### openGridBg()
 
 Show the grid background.
 
-#### closeGridBg()
+##### closeGridBg()
 
 Hide the grid background.
 
-#### toggleGridBg()
+##### toggleGridBg()
 
 Show or hide the grid background.
 
-#### getHeight()
+##### getHeight()
 
 Get the container's height.
 
-#### extendHeight(height)
+##### extendHeight(height)
 
 Increase container's height.
 
 * height: Input increasing values.
 
-#### resetHeight(height)
+##### resetHeight(height)
 
 Reset canvas height.
 
 * height: canvas height.
 
-#### autosize(auto:boolean)
+##### autosize(auto:boolean)
 
 Resize canvas width when `resize` event is triggered by browser.
 
-#### openHintWritingArea()
+##### openHintWritingArea()
 
 Open hint that is able to write area.
 
-#### closeHintWritingArea()
+##### closeHintWritingArea()
 
 Close hint that is able to write area.
+
+
+### Events
+
+* hide
+* startDrawing
+* stopDrawing
+* drawing
 
 
