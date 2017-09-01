@@ -3,7 +3,7 @@ writing-pad
 
 ## Dependencies
 
-* [drawingboard.js](https://github.com/eHanlin/drawingboard.js.git#v0.4.9)
+* [drawingboard.js](https://github.com/eHanlin/drawingboard.js.git#v0.4.10)
 * font-awesome
 * jquery
 

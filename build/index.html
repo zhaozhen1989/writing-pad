@@ -29,6 +29,16 @@
     board.show()
     board.resize()
     board.openHintWritingArea().then(function(){ console.log('done')});
+    board.on('startDrawing', ()=> console.log('startDrawing'))
+    /*setTimeout(function(){
+      board.toBlob().then(function(blob){
+        var url = URL.createObjectURL(blob);
+        var image = new Image();
+        image.src = url;
+        image.style.cssText = "width:100%;";
+        document.body.appendChild(image);
+      });
+    },5000);*/
     /*document.body.querySelector('canvas').addEventListener('touchstart', function (evt){
       console.log(evt.targetTouches);
       if(evt.targetTouches.length) {

@@ -1,6 +1,6 @@
 {
   "name": "writing-pad",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "The writing-pad support some basic features.",
   "authors": [
     "Sparrow.jang <sparrow.jang@gmail.com>"
@@ -14,7 +14,7 @@
     "build/bundle.js"
   ],
   "dependencies": {
-    "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.9",
+    "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.10",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1"
   }
