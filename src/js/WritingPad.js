@@ -25,6 +25,7 @@ class WritingPad extends SimpleObserver {
     this.board.__extend = this;
     this._initLayoutControls(this.opts);
     this._initEvents();
+    this._bindDelayResize = this._delayResize.bind(this);
   }
 
   _initEvents() {
@@ -88,9 +89,17 @@ class WritingPad extends SimpleObserver {
     `);
   }
 
-  resize() {
+  resize(redraw = true) {
     this.stateHistory.save();
+    let tmpCanvas;
+    if (redraw) tmpCanvas = canvasUtils.copyCanvas(this.board.canvas);
+    this.$el.find(".drawing-board-canvas-wrapper, canvas").width("100%");
+    let innerWidth = this._getInnerContentElement().width()
+    let width = this.$el.width()
+    let maxWidth = Math.max(innerWidth, width)
+    this._getInnerContentElement().width(maxWidth)
     this.board.resize({controlHeight:false});
+    if (redraw) canvasUtils.drawFrom(this.board.canvas, tmpCanvas);
     this.stateHistory.restore();
   }
 
@@ -193,10 +202,7 @@ class WritingPad extends SimpleObserver {
     clearTimeout(this._timeId);
     this._timeId = setTimeout(()=>{
       if (!this.isHidden()) {
-         let img = board.getImg();
-         this.$el.find(".drawing-board-canvas-wrapper, canvas").width("100%");
          this.resize();
-         this.restoreHistory(img);
       }
     }, ms);
   }
@@ -206,25 +212,21 @@ class WritingPad extends SimpleObserver {
   }
 
   extendHeight(height = 300) {
-    let originalCanvas = canvasUtils.copyCanvas(this.board.canvas);
     this.$el.height(this.getHeight() + height)
     this.resize();
-    this._resetBoard();
-    canvasUtils.drawFrom(this.board.canvas, originalCanvas);
   }
 
   resetHeight(height) {
-    let originalCanvas = canvasUtils.copyCanvas(this.board.canvas);
     this.$el.height(height);
-    this.resize();
+    this.resize(false);
     this._resetBoard();
   }
 
   autosize(auto = true) {
     if(auto) {
-      $(window).on('resize', this._delayResize);
+      $(window).on('resize', this._bindDelayResize);
     } else {
-      $(window).off('resize', this._delayResize);
+      $(window).off('resize', this._bindDelayResize);
     }
   }
 
