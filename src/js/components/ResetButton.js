@@ -22,6 +22,7 @@ let ResetButton = DrawingBoard.Control.extend({
     this.$el.on('click', 'button', ()=>{
       if (this.disabledConfirmation || confirm(this.confirmationText)) {
         this.board.__extend.resize()
+        this.board.clear()
       }
     })
   },
