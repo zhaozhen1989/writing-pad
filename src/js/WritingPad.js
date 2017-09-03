@@ -92,14 +92,15 @@ class WritingPad extends SimpleObserver {
   resize(redraw = true) {
     this.stateHistory.save();
     let tmpCanvas;
-    if (redraw) tmpCanvas = canvasUtils.copyCanvas(this.board.canvas);
+    let canvasWidth = this.board.canvas.width;
+    if (canvasWidth != 0 && redraw) tmpCanvas = canvasUtils.copyCanvas(this.board.canvas);
     this.$el.find(".drawing-board-canvas-wrapper, canvas").width("100%");
     let innerWidth = this._getInnerContentElement().width()
     let width = this.$el.width()
     let maxWidth = Math.max(innerWidth, width)
     this._getInnerContentElement().width(maxWidth)
     this.board.resize({controlHeight:false});
-    if (redraw) canvasUtils.drawFrom(this.board.canvas, tmpCanvas);
+    if (canvasWidth !=0 && redraw) canvasUtils.drawFrom(this.board.canvas, tmpCanvas);
     this.stateHistory.restore();
   }
 
