@@ -1,4 +1,5 @@
 
+import es6Promise from 'es6-promise-polyfill'
 import $ from 'jQuery';
 import * as random from './utils/random';
 import * as canvasUtils from './utils/canvasUtils';
@@ -11,6 +12,11 @@ import {DEFAULT} from './constants/WritingPad';
 import WritingPadHistory from './WritingPadHistory';
 import dataURLtoBlob from 'blueimp-canvas-to-blob';
 
+let Promise = window.Promise;
+
+if (typeof window.Promise === 'undefined') {
+  Promise = es6Promise.Promise;
+}
 
 class WritingPad extends SimpleObserver {
 
@@ -233,10 +239,18 @@ class WritingPad extends SimpleObserver {
 
   openHintWritingArea() {
     return new Promise((resolve, reject)=> {
-      this.$el.attr(HINT_AREA, '')
-      this.$el.one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
+      let close = ()=> {
         this.closeHintWritingArea();
         resolve();
+      };
+
+      let timeId = setTimeout(() =>{
+        close();
+      }, 3800);
+      this.$el.attr(HINT_AREA, '')
+      this.$el.one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
+        close();
+        clearTimeout(timeId);
       });
     });
   }
