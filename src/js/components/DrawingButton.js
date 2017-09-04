@@ -49,7 +49,7 @@ let DrawingButton = DrawingBoard.Control.extend({
 
   color:'rgba(0, 0, 0, 1)',
 
-  lineWidth: '3'
+  lineWidth: '2'
 
 });
 
