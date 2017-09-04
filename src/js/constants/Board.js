@@ -22,12 +22,12 @@ export const DEFAULT = {
         forward: false
       }
     },*/
-    'Drawing',
     {   
       Drawing:{
         color:'rgba(0, 0, 255, 1)'
       }   
     },  
+    'Drawing',
     {   
       Eraser:{
         lineWidth: '30'
