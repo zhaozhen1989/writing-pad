@@ -228,6 +228,7 @@ class WritingPad extends SimpleObserver {
   extendHeight(height = 300) {
     this.$el.height(this.getHeight() + height)
     this.resize();
+    this._resizeHintText();
   }
 
   resetHeight(height) {
@@ -244,6 +245,11 @@ class WritingPad extends SimpleObserver {
     }
   }
 
+  _resizeHintText() {
+    let height = Math.min(this.$el.height(), $(window).height());
+    this._getHintAreaTextElement().height(height - 40);
+  }
+
   openHintWritingArea() {
     return new Promise((resolve, reject)=> {
       let close = ()=> {
@@ -254,9 +260,8 @@ class WritingPad extends SimpleObserver {
       let timeId = setTimeout(() =>{
         close();
       }, 3800);
-      let height = Math.min(this.$el.height(), $(window).height());
-      this._getHintAreaTextElement().height(height - 40);
       this.$el.attr(DATA_HINT_AREA, '');
+      this._resizeHintText();
       this.$el.one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
         close();
         clearTimeout(timeId);
