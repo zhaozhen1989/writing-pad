@@ -5,7 +5,7 @@ import * as random from './utils/random';
 import * as canvasUtils from './utils/canvasUtils';
 import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE, START_DRAWING, BOARD_START_DRAWING, BOARD_STOP_DRAWING, STOP_DRAWING, DRAWING, BOARD_DRAWING} from './constants/Event';
-import {HINT_AREA, DATA_WRITING_AREA, DATA_CONTROL_LAYOUT} from './constants/WriteAttribute';
+import {DATA_HINT_AREA, DATA_WRITING_AREA, DATA_CONTROL_LAYOUT} from './constants/WriteAttribute';
 import {LEFT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
 import {DEFAULT} from './constants/WritingPad';
@@ -81,9 +81,16 @@ class WritingPad extends SimpleObserver {
     this._getInnerContentElement().width(width + 2);
   }
 
+  _getHintAreaTextElement() {
+    return this.$el.find('.hint-area-text');
+  }
+
   _buildContainerElement(id, opts) {
     return $(`
       <div class="writing-pad-container" ${DATA_WRITING_AREA}="${opts.hintAreaText}">
+        <div class="hint-area-text">
+          ${opts.hintAreaText}
+        </div>
         <div class="writing-inner-content">
           <div class="writing-pad-mask">
             <div id='${id}'>
@@ -247,7 +254,9 @@ class WritingPad extends SimpleObserver {
       let timeId = setTimeout(() =>{
         close();
       }, 3800);
-      this.$el.attr(HINT_AREA, '')
+      let height = Math.min(this.$el.height(), $(window).height());
+      this._getHintAreaTextElement().height(height - 40);
+      this.$el.attr(DATA_HINT_AREA, '');
       this.$el.one('webkitAnimationEnd oanimationend oAnimationEnd msAnimationEnd animationend', (evt)=> {
         close();
         clearTimeout(timeId);
@@ -256,7 +265,7 @@ class WritingPad extends SimpleObserver {
   }
 
   closeHintWritingArea() {
-    this.$el.removeAttr(HINT_AREA)
+    this.$el.removeAttr(DATA_HINT_AREA)
   }
 
 }
