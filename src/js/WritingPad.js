@@ -1,5 +1,5 @@
 
-import es6Promise from 'es6-promise-polyfill'
+import es6Promise from 'promise-polyfill';
 import $ from 'jQuery';
 import * as random from './utils/random';
 import * as canvasUtils from './utils/canvasUtils';
