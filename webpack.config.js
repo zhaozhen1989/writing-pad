@@ -36,6 +36,9 @@ module.exports = {
         'root.jQuery': 'jquery'
     }),
   ],  
+  node:{
+    setImmediate:false
+  },
   module: {
     loaders: [
       {  
