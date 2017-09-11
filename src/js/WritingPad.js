@@ -6,11 +6,12 @@ import * as canvasUtils from './utils/canvasUtils';
 import SimpleObserver from './utils/SimpleObserver';
 import {CLOSE, START_DRAWING, BOARD_START_DRAWING, BOARD_STOP_DRAWING, STOP_DRAWING, DRAWING, BOARD_DRAWING} from './constants/Event';
 import {DATA_HINT_AREA, DATA_WRITING_AREA, DATA_CONTROL_LAYOUT} from './constants/WriteAttribute';
-import {LEFT} from './constants/ControlsLayout';
+import {LAYOUT_POSITIONS, LEFT_RIGHT} from './constants/ControlsLayout';
 import {DEFAULT as BORAD_DEFAULT} from './constants/Board';
 import {DEFAULT} from './constants/WritingPad';
 import WritingPadHistory from './WritingPadHistory';
 import dataURLtoBlob from 'blueimp-canvas-to-blob';
+import SimulateControls from './SimulateControls';
 
 let Promise = window.Promise;
 
@@ -55,7 +56,7 @@ class WritingPad extends SimpleObserver {
 
   _initDOM(container, id, opts) {
     let $board = this._buildContainerElement(id, opts);
-    let $container = $(container)
+    let $container = $(container);
     $board.hide();
     $container.append($board);
     this.$el = $board;
@@ -63,8 +64,17 @@ class WritingPad extends SimpleObserver {
   }
 
   _initLayoutControls(opts) {
-    if (opts && opts.controlsLayout === LEFT) {
-      this.$el.attr(DATA_CONTROL_LAYOUT, LEFT);
+    let controlsLayout = opts && opts.controlsLayout ? opts.controlsLayout : null;
+
+    if (LAYOUT_POSITIONS.indexOf(controlsLayout) > -1) {
+      let $controls = this.$el.find('.drawing-board-controls');
+      let $background = this.$el.find('.controls-background');
+      this.$el.attr(DATA_CONTROL_LAYOUT, opts.controlsLayout);
+
+      if (controlsLayout == LEFT_RIGHT) {
+        let simulateControls = new SimulateControls(this, $controls, $background);
+        simulateControls.simulate();
+      }
     }
     this._setFirstControlToDefault();
   }

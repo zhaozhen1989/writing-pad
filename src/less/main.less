@@ -5,7 +5,7 @@
 @import "animations/makeup.less";
 @import "components/hint-area.less";
 @import "components/grid.less";
-@import "controls/left-side-drawing-board-controls.less";
+@import "controls/left-and-right-side-drawing-board-controls.less";
 
 .writing-pad-container {
 
@@ -13,7 +13,7 @@
   width:100%;
 
   .build-hint-area;
-  .add-left-side-drawing-board-controls;
+  .add-left-and-right-side-drawing-board-controls;
 
   .controls-background {
     display:none;
@@ -55,6 +55,7 @@
       canvas {
         //background-color:#CCE8FA;
         opacity:.7;
+        .user-select-none;
       }
     }
   }

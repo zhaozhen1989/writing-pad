@@ -1,9 +1,18 @@
 @import "../var/layout.less";
 
-.add-left-side-drawing-board-controls() { 
+.add-left-and-right-side-drawing-board-controls() { 
    
-  &[data-control-layout='left'] {
+  &[data-control-layout='right'] {
     .drawing-board-controls {
+      right:0;
+    }
+  }
+
+  &[data-control-layout='left'], &[data-control-layout='left-right'], &[data-control-layout='right'] {
+    .drawing-board-controls {
+      &.right {
+        right:0px;
+      }
       //margin-left:-51px;
       display:block;
      
@@ -38,14 +47,17 @@
     }
 
     .controls-background {
+      &.right {
+        right:0px;
+      }
       height: 100%;
       width: 50px;
       position: absolute;
-      pointer-events: none;
+      //pointer-events: none;
       display:block;
       background: url("../@{path}/img/white_brick_wall.png");
-      opacity: .7;
-
+      opacity: .95;
+      z-index:100;
     }
   }
 }  
