@@ -1,6 +1,6 @@
 
 //let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || setTimeout;
-let requestAnimationFrame = setTimeout;
+let requestAnimationFrame = (fn)=> setTimeout(fn, 500);
 //let cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || clearTimeout;
 let cancelAnimationFrame = clearTimeout;
 
