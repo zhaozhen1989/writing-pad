@@ -34,16 +34,19 @@ class SimulateControls {
     });
     let requestId = null;
     let refresh = ()=> {
-      let right = this.board.$el.width() - this.pad.$el.width();
-      this.$el.offset({top:$(window).scrollTop()}); 
-      this.$el.css('right', `${right}px`);
-      this.$elBackground.css('right', `${right}px`);
-      requestId = null;
+      if (!this.pad.isHidden()) {
+        let right = this.board.$el.width() - this.pad.$el.width();
+        this.$el.offset({top:$(window).scrollTop()}); 
+        this.$el.css('right', `${right}px`);
+        this.$elBackground.css('right', `${right}px`);
+        requestId = null;
+      }
     };
 
     let refreshPosition = ()=> {
       if (requestId == null) requestId = requestAnimationFrame(refresh);
     };
+    this._refreshPosition = refreshPosition;
 
     $(window).on('resize', refreshPosition);
     $(window).on('scroll', refreshPosition);
@@ -52,11 +55,16 @@ class SimulateControls {
     refreshPosition();
   }
 
+  resize() {
+    this._refreshPosition && this._refreshPosition();
+  }
+
   _unbindAll() {
     while(this._unbindEventFunctions.length) {
       let unbind = this._unbindEventFunctions.pop();
       unbind();
     }
+    this._refreshPosition = null;
   }
 
   _syncStyle($el, $target) {

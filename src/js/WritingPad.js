@@ -73,6 +73,7 @@ class WritingPad extends SimpleObserver {
 
       if (controlsLayout == LEFT_RIGHT) {
         let simulateControls = new SimulateControls(this, $controls, $background);
+        this.simulateControls = simulateControls;
         simulateControls.simulate();
       }
     }
@@ -125,6 +126,7 @@ class WritingPad extends SimpleObserver {
     this.board.resize({controlHeight:false});
     if (canvasWidth !=0 && redraw) canvasUtils.drawFrom(this.board.canvas, tmpCanvas);
     this.stateHistory.restore();
+    if (this.simulateControls) this.simulateControls.resize();
   }
 
   /*restore() {
