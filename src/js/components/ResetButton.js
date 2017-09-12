@@ -19,11 +19,14 @@ let ResetButton = DrawingBoard.Control.extend({
     if (this.opts.confirmationText) this.confirmationText = this.opts.confirmationText;
     if (this.opts.disabledConfirmation) this.disabledConfirmation = this.opts.disabledConfirmation;
 
-    this.$el.on('click', 'button', ()=>{
-      if (this.disabledConfirmation || confirm(this.confirmationText)) {
-        this.board.__extend.resize()
-        this.board.clear()
-      }
+    this.$el.on('click', 'button', (e)=>{
+      e.preventDefault();
+      setTimeout(()=> {
+        if (this.disabledConfirmation || confirm(this.confirmationText)) {
+          this.board.__extend.resize()
+          this.board.clear()
+        }
+      },350);
     })
   },
 
