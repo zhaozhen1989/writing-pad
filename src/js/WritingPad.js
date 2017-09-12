@@ -135,10 +135,12 @@ class WritingPad extends SimpleObserver {
 
   show() {
     this.$el.show()
+    this.board.startDrawing();
   }
 
   hide() {
     this.$el.hide()
+    this.board.stopDrawing();
   }
 
   isHidden() {

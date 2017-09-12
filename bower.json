@@ -14,7 +14,7 @@
     "build/bundle.js"
   ],
   "dependencies": {
-    "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.12",
+    "drawingboard.js": "git://github.com/eHanlin/drawingboard.js.git#v0.4.14",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1"
   }
