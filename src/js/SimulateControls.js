@@ -46,7 +46,7 @@ class SimulateControls {
     let refreshPosition = ()=> {
       if (requestId == null) requestId = requestAnimationFrame(refresh);
     };
-    this._refreshPosition = refreshPosition;
+    this._refreshPosition = refresh;
 
     $(window).on('resize', refreshPosition);
     $(window).on('scroll', refreshPosition);
