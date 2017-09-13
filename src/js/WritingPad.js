@@ -51,6 +51,7 @@ class WritingPad extends SimpleObserver {
     if (opts.controls) boardOpts.controls = controls;
     if (opts.gridTipText) boardOpts.gridTipText = gridTipText;
     if (opts.useMovingGesture) boardOpts.useMovingGesture = opts.useMovingGesture;
+    if (opts.isDrawingOnEvent) boardOpts.isDrawingOnEvent = opts.isDrawingOnEvent;
     this.boardOpts = boardOpts;
   }
 
