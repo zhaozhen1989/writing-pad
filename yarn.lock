@@ -864,6 +864,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+blueimp-canvas-to-blob@^3.11.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.14.0.tgz#ea075ffbfb1436607b0c75e951fb1ceb3ca0288e"
+
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.8"
   resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
@@ -1481,9 +1485,9 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-"drawingboard.js@git://github.com/eHanlin/drawingboard.js.git#v0.4.8":
-  version "0.4.8"
-  resolved "git://github.com/eHanlin/drawingboard.js.git#ea492b6ec105df9a55581ac9d17826d23d333f51"
+"drawingboard.js@git://github.com/eHanlin/drawingboard.js.git#v0.4.16":
+  version "0.4.16"
+  resolved "git://github.com/eHanlin/drawingboard.js.git#5079f57861790314a66165845f3b72928d350bb1"
 
 ecc-jsbn@~0.1.1:
   version "0.1.1"
@@ -3267,6 +3271,10 @@ process-nextick-args@~1.0.6:
 process@^0.11.0:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
+
+promise-polyfill@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.0.2.tgz#d9c86d3dc4dc2df9016e88946defd69b49b41162"
 
 promise@^7.1.1:
   version "7.3.1"
