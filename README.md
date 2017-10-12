@@ -76,6 +76,12 @@ board.toBlob().then(function(blob){
 });
 ```
 
+##### load(resource)
+
+Load a image to draw canvas, the resource can be url or img.
+
+You must set `img.crossOrigin` and cross domain headers If your canvas need be exported what to use `toBlob` or `toImage`.
+
 ##### saveByKey(key)
 
 Save current canvas to history by key.
