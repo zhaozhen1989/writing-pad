@@ -186,6 +186,21 @@ class WritingPad extends SimpleObserver {
     //this.stateHistory.restore();
   }
 
+  load(resource) {
+    return new Promise((resolve, reject)=> {
+      if (typeof resource === 'string') {
+        let img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.src = resource;
+        img.onload = ()=> {
+          canvasUtils.drawFrom(this.board.canvas, img);
+        };
+      } else {
+        canvasUtils.drawFrom(this.board.canvas, resource);
+      }
+    });
+  }
+
   restoreByKey( key, {clearEmpty = true, useHistoryHeight = false} = {}) {
     if (this.containKey(key)) {
       let historyCanvas = this.histories[key];
