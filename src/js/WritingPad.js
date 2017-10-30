@@ -59,7 +59,7 @@ class WritingPad extends SimpleObserver {
     let $board = this._buildContainerElement(id, opts);
     let $container = $(container);
     $board.hide();
-    $container.append($board);
+    //$container.append($board);
     this.$el = $board;
     if (opts && opts.canvasWidth) this._setInnerContentWidth(opts.canvasWidth);
   }
