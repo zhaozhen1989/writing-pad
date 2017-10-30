@@ -24,7 +24,7 @@ DrawingBoard.Control.Reset = ResetButton;
   let initialize = DrawingBoard.Control.Navigation.prototype.initialize;
   DrawingBoard.Control.Navigation.prototype.initialize = function() {
     initialize.apply(this, arguments);
-    this.$el.find(".drawing-board-control-navigation-reset").html("<i class='fa fa-repeat'/>");
+    //this.$el.find(".drawing-board-control-navigation-reset").html("<i class='fa fa-repeat'/>");
   };
 })();
 
