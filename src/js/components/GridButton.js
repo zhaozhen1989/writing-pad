@@ -7,14 +7,14 @@ let GridButton = DrawingBoard.Control.extend({
   name: 'grid',
 
   initialize:function() {
-    let ELEMENT_CLASS_NAME = 'drawing-board-control-grid-button';
-    this.$el.append(`
-      // <button class="${ELEMENT_CLASS_NAME}">
-      //   <i class="fa fa-th"></i>
-      // </button>
-    `);
-
-    this.$el.on('click', `.${ELEMENT_CLASS_NAME}`, this.onClick.bind(this))
+    // let ELEMENT_CLASS_NAME = 'drawing-board-control-grid-button';
+    // this.$el.append(`
+    //   <button class="${ELEMENT_CLASS_NAME}">
+    //     <i class="fa fa-th"></i>
+    //   </button>
+    // `);
+    //
+    // this.$el.on('click', `.${ELEMENT_CLASS_NAME}`, this.onClick.bind(this))
   },
 
   onClick: function(e) {
