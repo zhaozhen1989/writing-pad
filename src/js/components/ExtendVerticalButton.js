@@ -5,9 +5,9 @@ let ExtendVerticalButton = DrawingBoard.Control.extend({
   
   initialize: function() {
     this.$el.append(`
-      <button class="drawing-board-control-extend-vertical-button">
-        <i class="fa fa-arrows-v"></i>
-      </button>
+      <!--<button class="drawing-board-control-extend-vertical-button">-->
+        <!--<i class="fa fa-arrows-v"></i>-->
+      <!--</button>-->
     `);
 
     this.$el.on('click', '.drawing-board-control-extend-vertical-button', (e)=>{

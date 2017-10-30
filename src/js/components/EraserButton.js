@@ -7,7 +7,7 @@ let EraserButton = DrawingBoard.Control.extend({
 
   _initElement: function() {
     this.$el.append(`
-      <button class="drawing-board-control-drawingmode-${this.name}-button" data-mode="${this.name}"></button>`
+      <!--<button class="drawing-board-control-drawingmode-${this.name}-button" data-mode="${this.name}"></button>-->`
     );
   },
 

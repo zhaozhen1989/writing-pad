@@ -7,9 +7,9 @@ let DrawingButton = DrawingBoard.Control.extend({
 
   _initElement: function(ELEMENT_CLASS_NAME) {
     this.$el.append(`
-      <button class="${ELEMENT_CLASS_NAME}" data-mode="pencil">
-        <i class="fa fa-pencil"></i>
-      </button>
+      // <button class="${ELEMENT_CLASS_NAME}" data-mode="pencil">
+      //   <i class="fa fa-pencil"></i>
+      // </button>
     `);
     this.getButtonElement().css('color', this.color);
   },

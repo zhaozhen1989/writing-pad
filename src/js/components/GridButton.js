@@ -9,9 +9,9 @@ let GridButton = DrawingBoard.Control.extend({
   initialize:function() {
     let ELEMENT_CLASS_NAME = 'drawing-board-control-grid-button';
     this.$el.append(`
-      <button class="${ELEMENT_CLASS_NAME}">
-        <i class="fa fa-th"></i>
-      </button>
+      // <button class="${ELEMENT_CLASS_NAME}">
+      //   <i class="fa fa-th"></i>
+      // </button>
     `);
 
     this.$el.on('click', `.${ELEMENT_CLASS_NAME}`, this.onClick.bind(this))

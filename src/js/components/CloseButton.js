@@ -5,9 +5,9 @@ let CloseButton = DrawingBoard.Control.extend({
   
   initialize: function() {
     this.$el.append(`
-      <button class="drawing-board-control-close-button">
-        <i class="fa fa-close"></i>
-      </button>
+      <!--<button class="drawing-board-control-close-button">-->
+        <!--<i class="fa fa-close"></i>-->
+      <!--</button>-->
     `);
 
     this.$el.on('click', '.drawing-board-control-close-button', (e)=> {
