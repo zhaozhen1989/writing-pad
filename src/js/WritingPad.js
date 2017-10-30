@@ -98,20 +98,7 @@ class WritingPad extends SimpleObserver {
   }
 
   _buildContainerElement(id, opts) {
-    return $(`
-      <div class="writing-pad-container" ${DATA_WRITING_AREA}="${opts.hintAreaText}">
-        <div class="hint-area-text">
-          ${opts.hintAreaText}
-        </div>
-        <div class="writing-inner-content">
-          <div class="writing-pad-mask">
-            <div id='${id}'>
-              <div class="controls-background"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    `);
+    return $(``);
   }
 
   resize(redraw = true) {
